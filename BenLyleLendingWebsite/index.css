@@ -5,9 +5,7 @@
 /*color: #09C709, #0097FF, #F46415 */
 
 body {
-  margin-top: 0px;
-  margin-left: 0px;
-  margin-right: 0px;
+  margin: 0px;
 }
 .main-logo {
   box-shadow: 0 0 0px lightgrey;
