@@ -33,6 +33,7 @@ Large: 1.8
   #cf711f
 
 - Accents(secondary color):
+-#51cf66
 
 - Greys:
 #767676 (lightest grey allowed on #fff)
@@ -310,9 +311,11 @@ body {
   margin-bottom: 1.2rem;
 }
 .heading-tertiary {
+  font-weight: 700;
   font-size: 3rem;
   line-height: 1.2;
   margin-bottom: 3.2rem;
+  letter-spacing: -0.5px;
 }
 .step-description {
   font-size: 1.8rem;
@@ -358,4 +361,133 @@ body {
 
 .step-img {
   width: 35%;
+}
+
+/* *********************************************************************** */
+
+/* 3rd part of webpage */
+
+.section-meals {
+  padding: 9.6rem 0;
+}
+
+.center-text {
+  text-align: center;
+}
+.title-heading-meal {
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+.grid-cols-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 6.4rem;
+  row-gap: 9.6rem;
+  margin-bottom: 4.8rem;
+}
+.meal {
+  box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.075);
+  border-radius: 11px;
+  overflow: hidden;
+  transition: all 0.4s;
+}
+.meal:hover {
+  box-shadow: 0 3.2rem 6.4rem rgba(0, 0, 0, 0.08);
+  transform: translateY(-1.7rem);
+  cursor: pointer;
+}
+.meal-img {
+  width: 100%;
+}
+.meal-description {
+  padding: 3.2rem 4.8rem 4.8rem 4.8rem;
+}
+.meal-tag {
+  display: flex;
+  margin-bottom: 1.2rem;
+}
+.tag-name-vege {
+  background-color: #51cf66;
+}
+.tag-name-vegan {
+  background-color: #94d82d;
+}
+.tag-name-paleo {
+  background-color: #ffd43b;
+}
+.tag-name {
+  padding: 0.4rem 0.8rem;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  color: #333;
+  border-radius: 100px;
+  font-weight: 600;
+}
+.meal-title {
+  font-size: 2.4rem;
+  color: #333;
+  font-weight: 600;
+  margin-bottom: 3.2rem;
+}
+.meal-attributes {
+  list-style: none;
+  display: Flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.meal-attribute {
+  display: flex;
+  align-items: center;
+  font-size: 1.8rem;
+  gap: 1.6rem;
+}
+strong {
+  font-weight: 500;
+}
+.meal-icon {
+  display: block;
+  width: 2.4rem;
+  height: 2.4rem;
+  color: #e67e22;
+}
+ul {
+  list-style: none;
+}
+.meals-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+.list-item {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  line-height: 1.2;
+  font-size: 1.8rem;
+}
+.icon-list {
+  display: block;
+  width: 3rem;
+  height: 3rem;
+  color: #e67e22;
+}
+
+/* link */
+.meal-link {
+  text-align: center;
+  font-size: 1.8rem;
+}
+
+.recipe-link:link,
+.recipe-link:visited {
+  display: inline-block;
+  color: #e67e22;
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 2px;
+  transition: all 0.3s;
+}
+.recipe-link:hover,
+.recipe-link:active {
+  border-bottom: 1px solid transparent;
 }
