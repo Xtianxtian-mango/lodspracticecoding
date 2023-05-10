@@ -1,64 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="icon" href="icon/favicon.ico" />
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-------Styles------->
     <link rel="stylesheet" href="index.css" />
     <link rel="stylesheet" href="leftNavBar.css" />
+    <!-------Styles------->
+
+    <!--Title of the Web Application-->
     <title>Fortune Star Lending Corporation</title>
-    <style></style>
+    <!--Title of the Web Application-->
+
+    <!--Logo Icon-->
+    <link rel="icon" href="icon/favicon.ico" />
+    <!--Logo Icon-->
   </head>
   <body>
-    <div class="header">
-      <header class="logo-container">
-        <img class="main-logo" src="images/fortunestar.png" alt="" />
-      </header>
-      <div class="user-admin">
-        <img class="admin" src="svg/user-circle-gear-bold.svg" alt="" />
-        <h2>Welcome, Administrator</h2>
+    <div class="dash-and-admin">
+      <div class="all-header">
+        <div class="column-header">
+          <div class="logo-container">
+            <img class="main-logo" src="images/fortunestar.png" alt="image" />
+
+            <div class="home">
+              <img src="svg/gauge-fill.svg" alt="svg" />
+              <span>Dashboard</span>
+            </div>
+
+            <div class="search">
+              <img src="svg/users-four-fill.svg" alt="svg" />
+              <span>Client</span>
+            </div>
+
+            <div class="client">
+              <img src="svg/money-fill.svg" alt="svg" />
+              <span>Loans</span>
+            </div>
+
+            <div class="loans">
+              <img src="svg/files-fill.svg" alt="svg" />
+              <span>Report</span>
+            </div>
+
+            <div class="applicants">
+              <img src="svg/keyhole-fill.svg" alt="svg" />
+              <span>Access</span>
+            </div>
+
+            <div class="settings">
+              <img src="svg/toolbox-fill.svg" alt="svg" />
+              <span>Utilities</span>
+            </div>
+
+            <div class="logout">
+              <img src="svg/sign-out-fill.svg" alt="svg" />
+              <span>Logout</span>
+            </div>
+          </div>
+
+          <!--<p class="Lorem"></p>-->
+          <!---<div class="user-admin">
+            <img class="admin" src="svg/user-circle-gear-bold.svg" alt="svg" />--->
+          <!---<h2>Welcome, Administrator</h2>
+          </div>--->
+        </div>
       </div>
-    </div>
 
-    <div class="center-container">
-      <nav class="left nav bar">
-        <div class="home">
-          <img src="svg/gauge-fill.svg" alt="" />
-          <span>Dashboard</span>
+      <div class="background-header">
+        <div class="row-header-dashboard">
+          <h2>Dashboard-<span class="dropdown">dropdown content</span></h2>
         </div>
-
-        <div class="search">
-          <img src="svg/users-four-fill.svg" alt="" />
-          <span>Client</span>
+        <div class="row-header-administrator">
+          <div class="user-admin">
+            <img class="admin" src="svg/user-fill.svg" alt="svg" />
+            <h3>Welcome, "User-Access"</h3>
+          </div>
         </div>
-
-        <div class="client">
-          <img src="svg/money-fill.svg" alt="" />
-          <span>Loans</span>
-        </div>
-
-        <div class="loans">
-          <img src="svg/files-fill.svg" alt="" />
-          <span>Report</span>
-        </div>
-
-        <div class="applicants">
-          <img src="svg/keyhole-fill.svg" alt="" />
-          <span>Access</span>
-        </div>
-
-        <div class="settings">
-          <img src="svg/toolbox-fill.svg" alt="svg" />
-          <span>Utilities</span>
-        </div>
-
-        <div class="logout">
-          <img src="svg/sign-out-fill.svg" alt="svg" />
-          <span>Logout</span>
-        </div>
-      </nav>
-      <p class="Lorem"></p>
+      </div>
     </div>
   </body>
 </html>

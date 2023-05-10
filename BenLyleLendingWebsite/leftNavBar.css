@@ -27,29 +27,55 @@
   padding: 3px 3px 5px 3px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: start;
   gap: 5px;
   margin-top: 40px;
 }
-.header {
+.column-header {
   display: flex;
-  justify-content: space-between;
-  background-color: #09c709;
-  align-items: center;
+  justify-content: start;
+  align-items: start;
   margin-bottom: 40px;
 }
-h2 {
+.row-header-dashboard {
+  display: flex;
+  flex: 1;
+  padding-left: 10px;
+}
+.row-header-administrator {
+  display: flex;
+  padding-right: 10px;
+}
+.all-header {
+  display: flex;
+}
+.dash-and-admin {
+  display: flex;
+  align-self: start;
+  border: solid 1px rgb(0, 128, 0);
+}
+.background-header {
+  display: flex;
+  flex: 1;
+  align-self: start;
+  box-shadow: 0 5px 5px lightgray;
+  background-color: gold;
+}
+
+/*h2 {
   flex-wrap: wrap;
   padding-right: 8px;
-
+  background-color: gold;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   letter-spacing: 2px;
-}
+}*/
 .user-admin {
   display: flex;
   align-items: center;
   gap: 10px;
+  margin-right: 1px;
+  flex-wrap: wrap;
 }
 .admin {
   width: 34px;
