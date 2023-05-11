@@ -66,6 +66,13 @@ large: 15px;
   padding: 0;
   box-sizing: border-box;
 }
+
+/* global setting ni sya sa mga buttons and links para inig
+  click nila naay box-shadow mo-gawas */
+*:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.7rem rgba(230, 125, 34, 0.5);
+}
 html {
   /* percentage of user's browser font-size setting */
   font-size: 62.5%;
@@ -272,12 +279,14 @@ body {
   padding: 9.6rem 0;
 }
 
-/* container with default size */
+/* container with default size 
+    to center the page*/
 .container {
   max-width: 120rem;
   padding: 0 3.2rem;
   margin: 0 auto;
 }
+/* ******************* */
 .heading-secondary {
   color: #333;
   font-weight: 700;
@@ -490,4 +499,365 @@ ul {
 .recipe-link:hover,
 .recipe-link:active {
   border-bottom: 1px solid transparent;
+}
+
+/* *********************************************************************** */
+
+/* 4th part of the webpage */
+/* testimonials section */
+.section-testimonials {
+  background-color: #fdf2e9;
+  display: grid;
+  grid-template-columns: 55fr 45fr;
+  /* grid-template-columns: repeat(2, 1fr); */
+  align-items: center;
+}
+.testimonials-container {
+  padding: 9.6rem;
+}
+.testimonials-heading {
+  font-size: 4.4rem;
+  line-height: 1.2;
+  margin-bottom: 9.6rem;
+}
+.testimonials {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: 4.8rem;
+  column-gap: 8rem;
+}
+.testimonial-text {
+  font-size: 1.8rem;
+  line-height: 1.8;
+  margin-bottom: 1.6rem;
+}
+.testimonial-name {
+  font-size: 1.6rem;
+  color: #6f6f6f;
+}
+.testimonial-img {
+  width: 6.4rem;
+  border-radius: 50%;
+  margin-bottom: 1.2rem;
+}
+
+/* gallery section */
+.gallery {
+  padding: 1.6rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.6rem;
+}
+.gallery-item img {
+  width: 100%;
+  display: block;
+  transition: all 0.3s;
+}
+.gallery-item img:hover {
+  transform: scale(1.12);
+  cursor: pointer;
+}
+.gallery-item {
+  overflow: hidden;
+}
+
+/* *********************************************************************** */
+/* 5th part of webpage */
+
+.section-pricing {
+  padding: 9.6rem 0;
+}
+.grid-cols-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  row-gap: 9.6rem;
+  margin-bottom: 4.8rem;
+}
+.grid-cols-2-gap {
+  column-gap: 6.4rem;
+}
+.pricing-container {
+  border: 2px solid #fdf2e9;
+  padding: 4.6rem;
+  border-radius: 11px;
+  justify-self: end;
+}
+.plan-header {
+  text-align: center;
+  margin-bottom: 4.8rem;
+}
+.plan-name {
+  color: #cf711f;
+  font-weight: 600;
+  font-size: 2rem;
+  text-transform: uppercase;
+  margin-bottom: 3.2rem;
+}
+.plan-price {
+  font-size: 6.2rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 1.6rem;
+}
+.price-sign {
+  font-size: 3rem;
+  font-weight: 500;
+  margin-right: 0.8rem;
+}
+.plan-text {
+  font-size: 1.6rem;
+  line-height: 1.6;
+  color: #6f6f6f;
+}
+.plan-lists {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+.plan-list {
+  display: flex;
+  align-items: center;
+  font-size: 1.8rem;
+  gap: 1.6rem;
+}
+.icon-list {
+  display: block;
+  width: 3rem;
+  height: 3rem;
+  color: #e67e22;
+}
+.pricing-container-2nd {
+  justify-self: start;
+  background-color: #fdf2e9;
+  position: relative;
+  overflow: hidden;
+}
+.pricing-container-2nd::after {
+  content: "Best Value";
+  background-color: #ffd43b;
+  padding: 0.8rem 3.2rem;
+  color: #333;
+  position: absolute;
+  top: 5%;
+  right: -8%;
+  transform: rotate(45deg);
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+.price-link-container {
+  text-align: center;
+  margin-top: 4.8rem;
+}
+.price-link:link,
+.price-link:visited {
+  font-size: 2rem;
+  font-weight: 700;
+  padding: 1.6rem 3.2rem;
+  border-radius: 9px;
+  text-decoration: none;
+  display: inline-block;
+  margin-right: 12px;
+  background-color: #e67e22;
+  color: #fff;
+  transition: all 0.3s;
+}
+
+.price-link:hover,
+.price-link:active {
+  background-color: #cf711f;
+}
+
+/* aside */
+
+.aside-container {
+  text-align: center;
+  margin-bottom: 9.6rem;
+}
+.plan-details {
+  font-size: 1.6rem;
+  line-height: 1.6;
+}
+
+/* feature */
+
+.feature-grid-4-cols {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 6.4rem;
+}
+.feature-icon {
+  color: #e67e22;
+  border-radius: 50%;
+  background-color: #fdf2e9;
+  width: 3.2rem;
+  height: 3.2rem;
+  padding: 1.6rem;
+  margin-bottom: 3.2rem;
+}
+.feature-title {
+  font-size: 2.4rem;
+  color: #333;
+  font-weight: 700;
+  margin-bottom: 1.6rem;
+}
+.feature-description {
+  font-size: 1.8rem;
+  line-height: 1.8;
+}
+
+/* *********************************************************************** */
+
+/* login page */
+
+.login {
+  padding: 4.8rem 0 12.8rem;
+}
+.container-login-form {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.15);
+  border-radius: 11px;
+  background-image: linear-gradient(to right, #eb984e, #e67e22);
+  overflow: hidden;
+}
+.login-box {
+  padding: 4.8rem 6.4rem 6.4rem 6.4rem;
+}
+.heading-secondary {
+  margin-bottom: 3.2rem;
+  color: #45260a;
+}
+.heading-login-text {
+  font-size: 1.8rem;
+  line-height: 1.8;
+  margin-bottom: 4.8rem;
+  color: #45260a;
+}
+
+/* login-form-image */
+.login-img-box {
+  background-image: linear-gradient(to right, #eb974e4b, #e67d2239),
+    url(img/eating.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.login-form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 3.2rem;
+  row-gap: 2.4rem;
+}
+.login-form label {
+  display: block;
+  font-size: 1.6rem;
+  font-weight: 500;
+  margin-bottom: 1.2rem;
+  color: #333;
+}
+.login-form input {
+  width: 100%;
+  font-size: 1.8rem;
+  padding: 1.2rem;
+  font-family: inherit;
+  background-color: #fdf2e9;
+  border: none;
+  border-radius: 9px;
+}
+.login-form input::placeholder {
+  color: #aaa;
+}
+.login-form select {
+  width: 100%;
+  font-size: 1.8rem;
+  padding: 1.2rem;
+  font-family: inherit;
+  background-color: #fdf2e9;
+  border: none;
+  border-radius: 9px;
+  outline: none;
+}
+.btn-login-form {
+  display: inline-block;
+  width: 100%;
+  text-decoration: none;
+  font-size: 2rem;
+  font-weight: 600;
+  padding: 1.2rem;
+  border-radius: 9px;
+  border: none;
+  background-color: #45260a;
+  color: #fdf2e9;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.btn-login-form:hover {
+  background-color: #fdf2e9;
+  color: #333;
+}
+.btn-login-form-grid {
+  align-self: end;
+}
+.login *:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.7rem rgba(253, 242, 233, 0.5);
+}
+
+/* *********************************************************************** */
+
+/* footer */
+.footer {
+  padding: 12.8rem 0;
+  border-top: 1px solid #eee;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1.5fr 1fr 1fr 1fr;
+  column-gap: 6.4rem;
+  row-gap: 9.6rem;
+}
+.footer-logo {
+  height: 2.2rem;
+  display: block;
+  margin-bottom: 3.2rem;
+}
+.social-media-links {
+  list-style: none;
+  display: flex;
+  gap: 2.4rem;
+}
+.social-icons {
+  width: 2.4rem;
+  height: 2.4rem;
+  color: #888;
+}
+.copyright-text {
+  font-size: 1.4rem;
+  line-height: 1.6;
+  color: #767676;
+  margin-top: 6.7rem;
+}
+.footer-heading {
+  font-size: 1.8rem;
+  font-weight: 500;
+  margin-bottom: 4rem;
+}
+.footer-address {
+  font-size: 1.6rem;
+  color: #767676;
+  margin-bottom: 2.4rem;
+}
+.footer-link {
+  text-decoration: none;
+  font-size: 1.6rem;
+  color: #767676;
+}
+.footer-link-flex {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
 }
