@@ -1,0 +1,971 @@
+html and css notes;
+
+<!DOCTYPE html> : The <!DOCTYPE html> declaration provides the browser with two pieces of information (the type of document and the HTML version to expect), the declaration specifying the version of HTML 
+																		for the browser
+<html> : The <html> tag represents the root of an HTML document.
+
+<head> : The <head> element contains the metadata for a web page. Metadata is information about the page that isn’t displayed directly on the web page.
+	  contains information about the page.
+
+<title> : The <title> tag defines the title of the document. The title must be text-only, and it is shown in the browser's title bar or in the page's tab.
+
+<a href="" target="_blank"> : The <a> tag defines a hyperlink, which is used to link from one page to another. 
+	href="" : href attribute which indicates the link's destination.
+	target="_blank" : The target attribute specifies how a link should open. The target="_blank" attribute, when used in modern browsers, will open new websites in a new tab.
+
+
+../  >> kung ang html and css file nasa usa ka folder sulod sa main folder sa vscode, kung mag link ka sa css mag-gamit ani (../ + name sa folder sulod sa imong html and css) then / then name sa css.
+        kung ang imgs lahi ug folder sa html and css  mag-gamit ani (../ + name sa folder sa imgs)
+
+images: <img src="(url sa img)" alt="(name sa img)">  
+		note: pwede mag set ug link ang img. <a href="" target="_blank"> 
+							<img scr="" alt="">				note: if mag display:grid or display:flex ka sa container sa img, ayaw jud kalimti nga ang img
+							  </a>												 e-set ug witdth:100%
+						   									note: ayaw kalimit ug set sa img jud ug display:block;
+
+videos: <video src="(url sa video)" width="" height="" controls> video not supported (meaning mura ni sya ug alt="")</video>
+
+audio:
+
+website icon:
+	<link rel="icon" href="name sa image for website icon" type="image/x-icon" />
+
+
+/css units/
+pixel (px) :: absolute position >> dili advisable gamiton kay dili accessibility sa imong website, meaning if mag usab sila ug font size sa website dili ma-usab ang font size.
+			note:: if px ang unit sa width and height, dili siya accessibility nga mo gamay ang imong div-container.
+em(em) :: relative position of parent element >> gamiton ra ni sya sa padding ug margin, ang g basihan ani kay kung kinsa toy duol na parent element na naka set ug font-size.
+% :: relative position of parent element >> meaning kung pila toy width and height sa iyang parent, mao ra nay percentage sa imong child element.
+vh(viewport of height) :: relative position >> overall height sa imong webpage 
+vw(viewport of width) :: relative position >> overall width sa imong webpage.
+rem (rem) :: relative position of html root element >> 16px ang default font-size,  
+max-width: if the container element with is larger than specify max-width, then the width of the child element is equal to the value specify for max-width, however if the container width is less then the specify max-width 
+							then the width of the child element would be 100% of the container element width.
+													
+font-size:
+1rem = 16px = 100%
+
+
+note:  if used rem in css the font-size of html root element should be 62.5%
+		html{
+		        font-size: 62.5%;
+		        }
+			
+
+/class and ID/
+class >> pwede imo sya multiple na naming or label (pwede sad duha or more than ka class sulod sa usa ka element. 
+		example: <div class="colors color-blue"></div> ang colors is ang 1st class, if ganahan ka ug another class para dili mapektuhan 
+				ang 1st class pwede ka mag-butang ug 2nd class, dapat naka(space) ang 1st class ug 2nd class.
+								
+ID    >>  once ra ang iyang name og dili na pwede magbalik-balik
+
+/div/
+DIV   >>  mura sya ug container/box and sulod kay mao ang imong content.
+	note: if ang imong content(div) wala nay space sa tapad niya nga content(div), bawal mag gamit ug margin ug padding.
+	ang imong buhaton kay e-decrease ang width or height.
+/link/
+text-decoration: none; >>> para mawala ang underline text sa link.
+
+
+...............................................................................................................................................................................LIST PROPERTY.......................................................................................................................................................................................
+ul >> un-order list "dot" ang list
+ol >> oder list "number" ang list
+<li>  mga list items   </li>
+
+note :: before nimo e flex or e css-grid ang imong list dapat ang title sa list ug ang list dapat naka align na dapat.
+
+		 
+shorthand (margin and padding ): top&bottom    left&right >> kung duha  ka value
+	  		         top right bottom left     >> kung upat ka value
+				 top  right&left  bottom   >> kung tulo ka value
+				 top&right&bottom&left     >> kung usa ka value
+	   
+..........................................................................................................................................................................PSEUDO PROPERTY.................................................................................................................................................................................................................
+pseudo-class >> select the entire element (:) for more details visit https://www.w3schools.com/css/css_pseudo_classes.asp
+		A pseudo-class is used to define a special state of an element.
+				inig hover nimo sa card box ka molihok siya pataas >>> .class-name:hover: 
+
+
+pseudo-element >> select the specific part of an element (::) for more details visit https://www.w3schools.com/css/css_pseudo_elements.asp
+		A CSS pseudo-element is used to style specified parts of an element.
+		note: you can only used (::before and ::after ) once. 
+
+...................................................................................................................................................................HTML input tags....................................................................................................................................................................................................................................................
+
+<form>     the HTML <form> element is used to create an HTML form for user input
+
+<label> >> for name of the input >> meaning if mag set ug input para sa username ug password mag ani 
+	   example >> <label for="username">Username</label>  			note: ang for nga attribute para na sa id/class sa input, dapat same na sila ang for ug id/class.
+
+<input type="text">	Displays a single-line text input field
+<input type="password"> Displays a password line text
+<input type="radio">	Displays a radio button (for selecting one of many choices)
+<input type="checkbox">	Displays a checkbox (for selecting zero or more of many choices)
+<input type="submit">	Displays a submit button (for submitting the form)
+<input type="button">	Displays a clickable button
+
+use ID for input kay ka-isa ra man ka mag naming nila. example <input type="text" id="username" placeholder="Username" required>
+						
+name >> The name attribute is used to reference elements in a JavaScript/backend.
+value >> 
+note:: used autocomplete="off" para sa username nga input.
+
+
+datalist >>> is used to provide an "autocomplete" feature for <input> elements. Users will see a drop-down list of pre-defined options as they input data.											
+	     The datalist provide suggestions for input fiedls. Users can also enter a value that is not in the available list. meaning: Kung mag input ang users naa syay
+									choices available tungod sa datalist, but pwede ghapon maka enter ang user bahalag ang iyang g 
+									input kay wala sa datalist.												
+    <form>
+      <label for="browser">Choose your browser from the list:</label>
+      <input list="browsers" name="browser" id="browser" />
+      <datalist id="browsers">						note: <datalist id="namexxx"> dapat same sila ug name sa <input list="namexxx">
+        <option value="Edge"></option>						same ang name sa "datalist id" ug ang "input list" para ma connect ang list sa input
+        <option value="Firefox"></option>						no need na mag butang ug type="text" since naa namay list.
+        <option value="Chrome"></option>				note: if naay value ang option ang makita sa user sa drop-down list kay ang name sa value.
+        <option value="Opera"></option>
+        <option value="Safari"></option>
+      </datalist>				
+      <input type="submit" />
+    </form>
+
+select >> Provides a number of value from which user needs to select one. User cannot enter value that is not in the list.
+	  The <select> element is used to create a drop-down list.
+
+    <label for="cars">Choose a car:</label>
+    <select name="cars" id="cars">
+      <optgroup label="Swedish Cars">				<optgroup label="namexxx"> meaning name sa title group sa selection
+        <option value="volvo">Volvo</option>
+        <option value="saab">Saab</option>			<option value></option>  : meaning sa value kay kung unsay e select sa user mao nay value sa select
+      </optgroup>
+      <optgroup label="German Cars">
+        <option value="mercedes">Mercedes</option>
+        <option value="audi">Audi</option>
+      </optgroup>
+    </select>
+   <input type="submit" />
+
+optgroup >> The <optgroup> tag is used to group related options in a <select> element (drop-down list). meaning mura sya ug title group nga naa sa selection sa select tag.
+
+option >> The <option> tag can be used without any attributes, but you usually need the VALUE attribute, which indicates what is sent to the server on form submission.
+	   <option> elements go inside a <select>, <optgroup>, or <datalist> element.
+
+details >>>  tag specifies additional details that the user can open and close on demand. block element ni sya. (note: mao ni ang accordion)
+
+summary >> tag is used in conjunction with <details> to specify a visible heading for the details.
+	  mao ning makita nimo una. then inig click ang <p> makita dayon.
+	sample: <details>
+		<summary>Title</summary> 1st makita
+		<p>Sub-title</p> 2nd makita (adto ra ni makita kung imo e click ang arrow)
+		</details> 
+
+fieldset >> The <fieldset> tag is used to group related elements in a form.
+	    The <fieldset> tag draws a box around the related elements.
+legend >>  The <legend> tag is used to define a caption for the <fieldset> element. mao ni ang name sa fieldset or kanang name nga naa sa box
+
+
+.........................................................................................................................................................Button property....................................................................................................................................................................................................................................................
+note: inig set nimo sa button dapat naka display:inline-block sya.
+
+.........................................................................................................................................................Transform property....................................................................................................................................................................................................................................................
+
+tranform: The transform property allows you to visually manipulate an element by skewing, rotating, translating, or scaling.
+	-scale(): Affects the size of the element. This also applies to the font-size, padding, height, and width of an element, too. It’s also a a shorthand function for the scaleX and scaleY functions.
+	-skewX() and skewY(): Tilts an element to the left or right, like turning a rectangle into a parallelogram. skew() is a shorthand that combines skewX() and skewY by accepting both values.
+	-translate(): Moves an element sideways or up and down.
+	-rotate(): Rotates the element clockwise from its current position.
+	-matrix(): A function that is probably not intended to be written by hand, but combines all transforms into one.
+	-perspective(): Doesn’t affect the element itself, but affects the transforms of descendent elements’ 3D transforms, allowing them all to have a consistent depth perspective.
+
+
+.........................................................................................................................................................UNIVERSAL SELECTOR....................................................................................................................................................................................................................................................
+
+* >>>>>> universal selector in css
+
+......................................................................................................................................................................LINK....................................................................................................................................................................................................................................................
+if you want to color your link::
+	link color >> a{
+			color:xxx;
+			}
+      visited color >> a:visited{
+			color:xxx;
+	    		}
+        hover color >> a:hover{
+			color:xxx;
+			}
+       active color >> a:active{
+			color:yellow;
+			}
+link element  set to inline-block					note: don't forget to set display:inline-block
+										but adto ka mag set anah sa link ug visited
+pair recommended: 
+/original state/
+.btn--full:link,
+.btn--full:visited {
+  transition is on original state
+   display:inline-block;
+}
+/secondary state/
+.btn--full:hover,
+.btn--full:active {
+ 
+}
+
+.......................................................................................................................................................DISPLAY PROPERTY...................................................................................................................................................................................................................................................
+block >> over-line, takes all the space in webpage (default for div element)
+inline >> iya g putol ang line nga wala gamita (top and bottom margin dili ma apply same sa width and height, need pa nimo sya e set ug inline-block para maka 
+						  margin ka sa top and bottom)
+inline-block >> inside act as block, but outside act as a inline 
+
+note:  anchor element or a link element is inline element so box model does not work, so basically vertical spacing does not create new space. 
+					ang link imo e set to inline-block para ang spacing sa gawas mag work.
+note: display:block; mag set ani if ang imong span element dili mo sunod sa margin or padding.
+
+...........................................................................................................................................................POSITION.............................................................................................................................................................................................................................
+
+position:static; >> fix or default position of html
+
+position:relative; >> imo sya g push(top,bottom,left and right) kung asa to ang iyang static(default) nya nga position, without affecting any content
+		or box sa imong html or css. 
+
+position:absolute; >> adtu sya mo position sa iyang parent-relative, which means if sulod sya sa usa ka div dapat naka position:relative ang imong div,
+		kay kung dili adto sa mo position sa body element which is ang imong webpage.
+		dapat pud ang imong content na para position:absolute sulod sya sa div na naka set na ug position:relative
+
+position:fix; and position:sticky; >> mo stay ra ang imont content (esp. ang imong navigation bar) maskin imo pa sya g scroll down. 
+
+z-index: The z-index property specifies the stack order of an element. An element with greater stack order is always in front of an element with a lower stack order.
+	meaning: kung kinsa toy g set nimo ug z-index sya ang mo lihok, mo-overlap ba or underneath, 
+			sample: z-index: -1;     meaning ni underneath ni sya sa another content or element
+				z-index: 1;     meaning ni overlap ni sya sa another content or element. 
+	note: Note: z-index only works on positioned elements (position: absolute, position: relative, position: fixed, or position: sticky) and flex items (elements that are direct children of display:flex elements).
+
+
+......................................................................................................................................................................LAYOUT.......................................................................................................................................................................................
+float >>  ang imong content kung naka set ug float:direction(left and right direction) ni balhin sa kilid or nag lutaw imong content tapa d sa next niya nga content.
+		 example: img{float:left} (let an image float left to the text in a container)
+			basically ni balhin ra ang imong content sa imong set na direction.
+			(note:  ang imong parent na height if naka float ang imong duha or more than child kay mo collapse ang imong height)
+
+clear >> meaning kung mag set ka anah, sa left,right and both, ma clear niya kung asa imo sya g set. example clear:left; (meaning clear
+		or walay content sa left side. so sa text nya naay imgs sa left, mo naog ang text below na sya sa imgs.
+ 
+..........................................................................................................................................................FLEX BOX........................................................................................................................................................................
+
+flexbox >> One dimensional. ang imong content/element pwede ma place sa row direction and column direction.
+	block element by default
+
+		/FLEXBOX-CONTAINER/
+		/flex container properties/ overall position sa imong flex-items sulod sa flex container
+		display:flex >>for horizontal position ni sa mga content/items nimo sulod sa imong container (command ni sya para ang imong child items ma-set ug flex items)
+		display:row  >>for vertical position ni sa mga content/items nimo sulod sa imong container.
+		flex-direction >> for row and colomn direction sa imong flex-items
+				row :: horizontal axis
+				column :: vertical axis
+		align-items >> for vertical alignment (all movements in y-axis/vertical-direction) all flex-items inside of flex container
+				align-items:normal/stretch/auto >> all flex-items will be stretch according sa pilay g set sa main container na width and height
+					(note:: if mag set ka ug width and height sa imong flex-items, ang align-items:normal/auto/stretch kay dili mogana sa imong flex-items
+												nga naa nay specific width and height)
+				align-items:flex-start >> all flex-items will go to top position (vertical direction)
+				align-items:flex-end >> all flex-items will go to bottom position (vertical direction)
+				align-items:center >> all flex-items will go to center position (vertical direction)
+				align-items:baseline >> all flex-items will go to top position (vertical direction) note:: if kinsa flex-items pinaka-dako nga font-size adto sya kutob
+												         ang baseline vertical direction, the rest with same font-size kay label ra sila.
+			/align-item:flex-start vs align-items:baseline/
+		align-items:flex-start or align-self:flex-start >> flex items will go to top position(vertical direction) but ang reference niya is ang imong edge sa imong flexitems box
+																					
+			align-items: baseline >> flex items will go to top position(vertical direction) but ang refenrence niya is ang baseline sa imong font.
+							to simply if dako ang font-size sya maoy naa sa pinaka-top position.
+							
+		justify-content >> for horizontal alignment (all movement is x-axis/horizontal-direction) all flex-items inside of flex container
+				justify-content:start >> default or ang flext-items naa sya sa left side (note:: horizontal-direction)
+				justify-content:end >> flex-items will go to right side (note::  horizontal-direction)
+				justify-content:center >> all flex-items will go to center (note:: horizontal-direction)
+				justify-content:space-between >> all flex-items will have equal space(margin), execpt for left side and right side (walay margin sila).
+				justify-content:space-around >> all flex-items will have equal space(margin), ang imong left side and right side kay half ra ang iyang space.
+				justify-content:evenly >> all flext items will have equal space(margin) apil na ang left side ang right side (equal na sila ug space). 
+		
+		flex-wrap >> control the flex-items inside the flex container is in single-line or in multiple-line.
+			flex-nowrap >> default position or ang flex-items is in single-line inside of flex container (if gamay ra ang width nya daghan ang flexitems nga naka row position ma-overflow ang mga 
+													flexitems sa iyang container)
+			flex-wrap >> flex-items is in multi-line inside of flex container (if dili ka ganahan nga mag overflow ang imong flexitems inside sa flexcontainer used flex-wrap:wrap)
+											note:: flex-wrap:wrap create space between top and bottom sa flexitems.
+
+		align-content >> is used to align the items inside the flexbox along the cross-axis. Note that it applies to Multi-line containers
+			meaning, nag set ug flex-wrap dba ma multi-line na naman na sya, naa nay space between. if gahanan ka nga magsikit sila or ma act sila as align-items mag set ka ani >>align-content:
+				same ra ni ug lihok sa justify-content: pero naka cross axis/vertical direction ni.
+			align-content:flex-start >> all flex items will be on top (vertical direction/cross axis)
+			align-content:flex-end >> all flex items will be on bottom (vertical direction/cross axis)
+			align-content:center >> all flex items will on center (vertical direction/cross axis)
+			align-content:space-around >> all flex items will have half margin/space sa top and bottom and equal space sa center.
+			align-content:space-between >> all flex items walay space sa top and bottom but equal space sa center.
+			align-content:space-evenly >> all flex items will have same/equal space.
+
+		/FLEXBOX-ITEMS/
+		/*flexbox items properties*/ ang mga content/item nga sulod sa imong main container nga naka set na ug (display:flex)
+		align-self:stretch >> imo g stretch ang imong content same sa height na given na (need ka mag set ug height para mo gana ni.)
+		align-self:flex-start >> ang content/item ni adto sa pinaka-top sa iyang flexbox container.
+		align-self:flex-end  >> ang content/item ni adto sa pinka-ubos sa iyang flexbox container.
+		0(zero) ang tanan content/items are default 0(zero) position 
+		order >> if ganahan ka nga mag e balhin nimo sya ang gkan sa right padung sa left mag set ka ug order.
+				if negative (less than zero) padung left ang imong content/item
+				if positive (more than zero) padung right ang imong content/ite
+		gap >> same with margin but on flexbox style, walay margin ang last item nimo padung sa border sa main container.
+		flex-grow >> flex-grow:0; default value	>> meaning if mag set ug flex-grow:1; kung pila toy all remaining space sa flex-container iya to e occupie. if tanang flex-items sulod sa 
+									flex-container ang naka set ug flex-grow all items will have SAME width and height. 
+									flex-grow:2 or more number positive>> dako ang increase sa flex-item inside of flex-container	
+								
+		flex-shrink >> flex-shrink:1; (default value) >>flexshrink >> it only works if ang imong flex-container naka set ug width or height ani nga units (VW, VH and %) >> default is 1 meaning "enable",
+								meaning pwede mo shrink ang imong flex-items inside sa flex-container if wala nay space inside sa flex-container, if nag set ug 0
+								nya ang flex-basis sa imong flex-items dako pa sa flex-container, mo overflow ang flex-items dili mo gana ang flex-shrink. 
+					makita ra nimo ang result sa shrink kung imo e-minimize ang web-page. if mag set ka ug more than 1 (ex. flex-shrink:2) dako ang iyang e shrink vs sa iyang tapad. 
+								flexshrink determines if allowed ba ang flex-items na mo shrink inside sa flex-container. 
+
+
+		flex-basis >> flex-basis:auto; (default value) >> The flex-basis property sets the flex basis. It accepts the same values as the width and height property, plus content.
+								meaning nag hatag ka ug width and height sa imong flex-items. but if ang flex-items dako na daan kontra sa imong flex-basis:width and height
+									dili mo gana ang imong flex-basis. 
+									to simply:: setting of base width and height of flex-items in flex-container. 
+									When flex-direction is row, flex-basis controls width. when flex-direction is column, flex-basis controls height.
+									note:: if flex-items used flex-basis if you want to set a width and height, just remember the flex-direction.
+*flex-grow and flex-shrink						note::dapat px ang unit na gamiton.
+1 is enable
+0 is disable							max-width vs flex-basis >> either less or greater ang value sa max-width, max-width wins
+								min-width vs flex-basis >> if less value of min-width vs flex-basis, flex-basis wins. but if min-width has greater value vs flex-basis,																					min-width wins
+*flex-basis 
+auto >> meaning the width of flex-items each one of them inside of the 
+flex-contaniner is going just to be enough accommodate the text content inside the flex-items.										
+
+					
+shorthand for flex-shrink,grow and basis >> flex:(grow shrink basis);							
+
+tip on how to center a div by using flexbox 
+	display:flex;
+	align-itemscenter;
+	justify-content:center;
+
+note: pwede nimo ma flex-container ang imong flex-items.
+
+note :: display >> is for parent/main-container	
+     :: flex-items >> is ang child element/child content nga sulod sa imong parent container
+     :: main axis >> horizontal/x-axis
+     :: cross axis >> vertical/y-axis
+     :: align-content works for Multi-line container. if Multi-line na ang sulod sa flex-container mag gamit naka ani. 
+     :: align-items work for single-line container. if single-line ra ang sulod sa flex-container mag gamit ka ani.
+	
+...................................................................................................................................................... CSS GRID .......................................................................................................................................................................................................................
+
+css grid >> two dimensional. ang imong content/element pwede ma place sa row kuyug ug column direction. 
+note: used firefox dealing with css grid.
+												note: pwede ra dili ka mag set ug width and height sa grid-items, due to 
+												grid-template-rows and grid-template-column na value. if naa kay width and height
+												 dili ma sunod ang value sa G-T-R and G-T-C. 											
+		//GRID CONTAINER://	
+	display:grid >> This value causes an element to generate a block-level grid container box.
+			note:: if naay free space sa imong grid-container iya e occupie kung naka set ug display:grid.
+			note:: dili sila pareho ug concept sa display:block ug display:grid
+				display:grid >> enables the use of grid layout to create complex layouts.
+				display:block >> makes an element a block-level element.
+	display:inline-grid >> This value causes an element to generate an inline-level grid container box.
+			note :: dili sila pareho ug concept sa display:inline ug display:inline-grid.
+				 display:inline >> makes an element an inline-level element.
+				 display:inline-grid >> enables the use of grid layout while keeping the element inline-level.
+
+								columns >> deals with height (vertical direction) 
+								row >> deals with width (horizontal direction)
+								
+grid-template-columns: >> meaning ang imong grid-items will be in columns (in vertical position). kung mag set ug number with unit(px, %, fr, rem and em) >> meaning pila ka buok columns ang mahimo.
+				example: grid-template-columns:100px 200px 300px 400px >>> meaning 4 ka columns ang nahimo/ 4 columns sa grid-items. direction:↓, deals with width sa grid-items.
+
+grid-template-rows >> meaning ang imong grid-items will be in rows (in horizontal position). kung mag set ug number with unit (px, %, fr, rem and em) >> meaning pila ka bouk ang rows ang mahimo.
+				example: grid-template-rows: 100px 100px 100px 100px >> meaning 4 rows ang nahimo/4 rows sa grid items. direction:→, deals with height sa grid items.
+				(note: kanang number mao nay set sa width or height, nya kung pila ka bouk number maoy nay pila ka bouk columns or rows mahimo.)
+				auto >> if naay free space, automatic iyang occupie.
+
+grid: also a shorthand property for setting either grid-template-rows and grid-template-columns.
+	sample>> grid: grid-template-rows / grid-template-columns;     grid: 50px 100px / repeat(3, 1fr); 
+
+  gap >> same as flexbox, gap makes space but border-side sa grid-container walay space.
+  column gap >> gap sa column side.
+  row-gap >> gap sa row side.
+
+shorthand >>> grid-template-columns: repeat(3, 1fr) >> meaning 3 ka column nya and size kay 1fr. this is same sa grid-template-rows.
+
+fr >> fractional unit takes a fraction of the available space and divides it equally (if naay gap iya e subract ang gap MINUS width of container then divide equally kung pila kabouk ang columns or row) 
+						if more than 1 ang value sa fr, example: 2fr>> g multiply niya ang size sa pikas na grid-item. maong murag ni double and size niya. 
+auto >> whenever there's an undefined size space that we want to fill up, just used auto.
+repeat >> 1st value meaning pila kabouk column and row then (comma) 2nd value is pilay size sa column and row. example >> grid-template-columns: repeat(3, 1fr) >> 3 ka columns, 1fr ang size sa 3 ka column.
+minmax >> enable us to specify minimum and maximum value of columns and rows. 1st value "min" inig shrink sa website kung pila toy na set na "min" adto ra kutob ang iyang size. 2nd value "max" full screen ang 
+																						effectivity.
+				note: if duha or more than na ka "minmax" ang naka set inig shrink sa website mo overflow ang grid-items sa grid-container. 
+
+auto-fill >>meaning if naka shrink ang imong webpage, gradually increase para ma fullscreen sya if pila toy naka set nga size mo fill-up siya ug another space. example: grid-template-column:repeat(auto-fill,300px)
+            e-shrink ang webpage then, gradually increase sa webpage nya naa nay 300px nga availabe space if naay grid items na ubos eya e-occupie, if walay grid-items sa ubos mag fill siya ug another space 
+	   with 300px. On the other hand, when using auto-fill, the grid items will be distributed evenly across the available grid tracks, creating extra columns or rows as necessary to fill the grid. 
+					This means that the grid items will not be stretched to fill the available space in the grid container.
+
+auto-fit >> auto-fit: When using auto-fit, the grid items will be automatically fit into the available grid tracks, 
+	    without creating any extra columns or rows in the grid-container. If there are any remaining empty grid tracks, they will simply be left blank. This means that the grid items will be automatically 
+			stretched to fill the available space in the grid container.
+note:: When using minmax() function, the auto-fit keyword will expand the grid items to fill the available space. While auto-fill will keep the available space reserved without altering the grid items width.
+keyword:: auto-fit >> dili mag-buhat ug space, ang grid items will stretched inside sa grid-container, without leaving a space.
+	  auto-fill >> if naay available space inside sa grid-cotaniner, e occupie sa grid-items nga naa sa ubos or mag leave sya ug space.
+
+grid-auto-rows/grid-auto-columns: >> if naay NEW grid-items nya walay labot sa grid-template-columns and row, you can use this grid-auto-rows/column. nya tanan NEW grid-items will have same width or height
+											depends sa pag set-up kung, rows siya same sila ug height and if column siya same sila ug width. 
+
+grid-auto-flow: by default grid-auto-flow is set to row, whenever we have any NEW grid-items inside of grid-container nya walay labot sa grid-template-columns and rows, kung naka set ug row ang direction
+			 	ang NEW grid-items will be in ROW DIRECTION, if naka set ug column ang NEW grid-items will be in COLUMN DIRECTION.
+					 NOTE: kung pila toy naka set nga grid-template-columns/row, eya son-don ang width and height.
+
+grid-auto-dense: if mag add ka ug NEW grid-items nya naay extra space sa 1st row/column adto niya e occupie ang NEW grid-items.
+
+//..............................................................................................ang lihok ani kay kutob ra sa naka set na value grid-template-column and row. adto ra kutob sa grid-cell, but all grid-items will be affected......................................................................................//
+align-items: column direction or vertical direction you can specify (start, end, center and stretch[default ang stretch]) adto ra sya kutob ang lihok sa size sa grid-template-row. 
+     note: The align-items property aligns grid items by distributing free space in the columns (not the overall container).																(horizontal direction ang lihok sa mga grid-items)
+
+justify-items: row direction or horizontal direction you can specify (start, end, center and stretch[default ang stretch]) adto ra sya kutob ang lihok sa size sa grid-template-column.(vertical direction ang 
+     note: The justify-items property aligns grid items by distributing free space in the columns (not the overall container).																	lihok sa mga grid-items)
+
+place-items: shorthand sa align-items and justify-items ( mag UNA ang align-items then justify-items) sample: place-items: center(align-items) end(justify-items). pwede sad place-items: center (meaning 
+															ang align-items and justify-items same ra ug value.)
+
+//...........................................................................................................................ang lihok ani kay overall sa grid-container all grid-items will be affected......................................................................................................//
+align-content: vertical direction all grid items will be affected. mura ni sya ug flexbox. note: The justify-items property aligns grid items by distributing free space in the columns (not the overall container).
+		align-content:start >> all grid-items will be on top (vertical direction/cross axis) 
+		align-content:end >> all grid-items will be on bottom (vertical direction/cross axis)
+		align-content:center >> all grid-items will on center (vertical direction/cross axis)
+		align-content:space-around >> all grid-items will have half margin/space sa top and bottom and equal space sa center.
+		align-content:space-between >> all grid-items walay space sa top and bottom but equal space sa center.
+
+justify-content: horizontal direction all grid-items will be affected. mura ni sya ug flexbox.  note: 
+		justify-content:start >> default or any grid-items naa sya sa left side (note:: horizontal-direction)
+		justify-content:end >> grid-items will go to right side (note::  horizontal-direction)		note: make sure nga dili naka fr unit ang imong grid-template-column kay dili mo 
+		justify-content:center >> all grid-items will go to center (note:: horizontal-direction)				gana ang imong justify-content.
+		justify-content:space-between >> all grid-items will have equal space(margin), execpt for left side and right side (walay margin sila).
+		justify-content:space-around >> all grid-items will have equal space(margin), ang imong left side and right side kay half ra ang iyang space.
+		justify-content:evenly >> all grid-items will have equal space(margin) apil na ang left side ang right side (equal na sila ug space). 
+
+	
+place-content: shorthand sa align-content and justify-content ( mag una ang align-content then justify-content) sample: place-content: center(align-content) space-evenly(justify-content). 
+															place-content: center (meaning ang align-content and
+															 justify-content same ra ug value.) 
+
+Grid-template-areas: is basically a visual representation of our grid-container and it works hand in hand with the grid-item property called grid-area. grid-template-areas: ""; (each "" is a single row)
+		     sample: grid-template-row:60px auto 100px; >>meaning naa kay 3 ka grid-item row . so need ka ug 3 ka ("") double qoutes. ang sulod sa ("") double qoutes name na sa imong grid-item dili
+							note: each double qoutes represents a single row.				ang class-name, kundi ang NAME jud.
+		
+grid-area: kung unsa toy name sulod sa imong ("") double qoutes namoy e set sa grid-area. sample: grid-area:Header;  note:: kung unsa name sa grid-template-areas same sad ug name sa grid-area.
+		before ka mag set aneh imo sa e target ang class attribute sa grid-items.
+
+grid-template: is a shorthand property for setting grid-template-columns, grid-template-rows and grid-template-areas in a single decleration. 
+
+
+
+      	//GRID_ITEMS://
+grid-column-start and grid-column-end:  enable to do is position our grid-items within the grid-container according to the grid column lines. meaning ang lihok ani kay column (vertical direction).
+	sample:  grid-column-start: 1;
+	               grid-column-end: 3; 	      meaning: ang imong grid-item nga naka set ani, is mo stretch ang grid-items from column line 1(start) to column line 3 (end).
+				      note: ang mga label sa lines makita true google or mozila (inspect then elements).
+	shorthand:  grid-column: start/end;
+
+
+
+grid-row-start and grid-row-end: same ang lihok ani sa grid-column start and end, but in row(horizontal direction)
+	sample: grid-row-start: 3; 
+	              grid-row-end: 5;	meaning ang imong grid-item nga naka set ani, is mo stretch sya from row line 3(start) to row line 5 (end).
+				 note: ang mga label sa lines makita true google or mozila (inspect then elements).
+	shorthand: grid-row: start/end;
+		
+......................................................................all self properties: enable us to position a single/grid-item anywhere within it's own grid-cell.  meaning mura siya ug align-items ug justify-items, but ang lihok kay one grid-item ra
+								kung unsay g target nga grid-item mao ra toy molihok ...............................................................................................................................................................
+
+justify-self: is used to set how an individual grid item positions itself along the  row/inline axis, horizontal axis.
+	properties: start, end, center and stretch(default) ang lihok ani kay pa horizontal axis.
+															
+	
+align-self: is used to set how an INDIVIDUAL grid item positions itself along the vertical axis
+	properties: start, end, center and stretch(default) ang lihok ani kay pa vertical axis.
+
+place-self:  shorthand property sa align-self and justify-self
+	sample: place-self: align-self(center) justify-self(end);  note: if same ra ug value ang align-self and justify-self pwede ra isa ka value. sample: place-self: center; (align-self and justify-self is naka center ang value)
+
+
+grid-area:  The grid-area property specifies a grid item's size and location in a grid layout, and is a shorthand property for the following properties:
+	grid-row-start, grid-column-start,  grid-row-end, and grid-column-end.
+ 	sample: grid-area: grid-row-start / grid-column-start / grid-row-end / grid-column-end
+
+...................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
+
+/box-model/
+final element width >> right-border+right-padding+contentwidth+left-padding+left-border
+final element height >> top-border+top-padding+contentwidth+bottom-padding+bottom-border
+
+box-sizing:border-box >> exact width and height sa imong content box, meaning kung nag set ka ug padding and border iya g subtract ang content width ug height, 
+			para makuha ang exact/overall width ug height.
+			The box-sizing property allows us to include the padding and border in an element's total width and height.
+			If you set box-sizing: border-box; on an element, padding and border are included in the width and height:	
+
+box-sizing:content-box >> default for all elements
+
+box-shadow:   >> 1st value is the horizontal offset, 2nd value is vertical offset, 3rd value is the blured of the shadow, 4th value scale the shadow up murag z-axis, last value is the color of the shadow 
+			for cards box-shadow: box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+
+text-shadow: 1st value is the horizontal offset, 2nd value is vertical offset, 3rd value is the blured of the shadow,  last value is the color of the shadow 
+			useful rani sya kung ang text kay naa sa image, para mag stand-out jug ang text.
+		
+	trick to add border inside:
+	box-shadow: inset 0 0 0 3px(thickness of border) #fff(color of border);
+
+...................................................................................................................................................icons.................................................................................................................................................................................................................................................
+stroke: >>> class sa icon para maka set ka ug color. 
+sample: .icon{
+	stroke: #087f5b;
+	}                               meaning ang icons kay naa nay color.
+							
+......................................................................................................................................................................................................................................................................................................................................................................................................							
+notes:
+Layout  >> is the way text, images and other content is placed and arranged on a webpage
+content >> is ang imong imgs, headlines, paragraph or ang imong design
+
+/img/
+
+object-fit: cover; >> Enlarges the image to cover the entire width * height area without stretching or distorting the image. keyword "enlarge img without stretching or distoring the img".
+object-fit: contain; >> Shrinks the image so that it's contained in the width * height area. 				     keyword"shrinks the image, with stretching or distoring the img".
+object-position: left; ]
+object-position: right;] Determines where the image is positioned in the width * height area.
+object-position: top;  ]
+object-position: bottom;]
+
+overflow:hidden; >> meaning kung naay img nga ni overflow sa container, eya e cut ang img para masulod sya sa container and set object-fit:cover; 
+													width:100%;
+													height:100%; para ma sulod ang img sa container.
+														
+background img responsive >> meaning responsive, mausab-usab ang height and width if e minimize ang webpage.
+  background-image: url("name sa img")
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 100vh;
+  width: 100vw;	
+
+/for html icons/
+<link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"rel="stylesheet"/>
+
+
+.......................................................................................................................................................................center a div using position absolute...................................................................................................................................................................................................................................................
+ position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+................................................................................................................................................................MEDIA QUERIES...........................................................................................................................................................................................................................................................
+
+Media queries: allows us to control how our website looks across multiple devices, so you may heard the term responsive design.
+Media queries: allow you to apply CSS styles depending on a device's general type (such as print vs. screen) or other characteristics such as screen resolution or browser viewport width.
+
+@media screen (width) and (with){
+	css properties....
+		}				@media >>  meaning ang imong website naka set na ug para media query, 1st ingredient in media query
+						screen (media type	): Matches devices with a screen
+						print(media-type): Matches documents that are viewed in a print preview or any media that breaks the content up into pages intended to print.
+									meaning inig print nimo unsay layout niya.
+						speech:(media-type): Matches devices that read the content audibly, such as a screenreader. 
+						(media-feature):  min-width(mobile) and max-width (desktop)
+						and(operator): we can use the and operator if we want to target screens within a range of widths:
+						or(or comma-separated): We can also comma-separate features as a way of using an or operator to match different ones:
+						not(operator): not supported.
+		
+
+How media queries work with max-width property (desktop)			note: If you design desktop first then you would use MAX-WIDTH to make your website responsive on smaller viewports,
+	sample: @media all (max-width: 500px) {					if you design mobile first then you would use MIN-WIDTH to make your website responsive on larger viewports.
+			h1{
+			color: red;
+			  }				meaning: inig re-size sa webpage nya mo abot na sya sa 500px width ang h1 kay mahimong red color, kay nag set ka ug h1 to color red.
+			}						adto na mo apply ang css kung maabot na sa size na 500px width sa screen, if lapas sa 500px width dili mo apply ang css. 
+
+
+
+How media queries work with min-width property(mobile)
+	sample @media all (min-width: 500px) {
+ 				 h1 {
+ 				   color: red;		meaning: ang lihok ani kay opposite sa max-width, meaning inig re-size sa webpage to 500px dili na ma-apply ang CSS. 
+ 				       }									Ma-apply ang CSS above 500px, if below 500px dili na ma-apply ang css.
+				   }
+
+				
+							
+										note: do not used px, use EM in max-width/min-width units
+
+
+Breakpoints:
+	Common Media Query Breakpoints:
+		Breakpoints		Description
+		<481px			Mobile devices
+		481px---768px		iPads, Tablets
+		769px---1024px		Small screens, Laptops
+		1025px---1200px		Desktops, large screens
+		1201px and greater	Extra Large screens, TV
+
+	Bootstrap Breakpoints
+		Breakpoints		Description
+		<576px			xs(small screen Mobile devices)
+		>=576px			small(Mobile devices)
+		>=768px			medium(Tables, iPad) 
+		>=992px			large(laptops)
+		>=1200px		xl(desktop)
+		>=1400px		2xl(larger screen, TV)
+
+
+
+..................................................................................................................................................................Lecture of Web design..................................................................................................................................................................................................................................................................................................
+    
+web designer: create the overall look and feel of website.
+web developers: implement the design using HTML, CSS and javascript code.
+
+Ingredients of Web Design:
+
+1. Typography: formatting and designing text. Typography is the art and technique of arranging type to make written language legible, readable and appealing when displayed.
+rules:	1. use only good and popular typefaces and play it safe. 		
+	sans-serif typeface:	serif typeface:
+	>Inter		>merriweather
+	>Open Sans	>Aleo				typeface vs fonts
+	>Roboto		>Playfair Display			typeface: describes a particular style of lettering. sample: Arial, helvetica, roboto and many more...
+	>Montserrat	>Cormorant			fonts: font refers to variations of a typeface, like its size,weight and style.  sample: roboto Thin, roboto light, roboto regular, roboto bold and may more...
+	>Work Sans	>Cardo
+	>Lato		>Lora
+	2. It's okay to use just one typeface per page. If you want more, limit to 2 typefaces
+	3. Choose the right typeface/font according to your website personality	
+		>>Choose the right personality for your website 
+		>> Decide between a serif and sans-serif typeface/fonts
+		>> Experiment with all the "good" typefaces/fonts in google fonts.
+	4. When choosing font-sizes, limit choices! 
+	5. Use a font-size between 16px and 32px for normal text.
+	6. for long text (like blog post, news, article and etc) try a size of 20px or even bigger
+	7. for Headlines, you can go really big 50px+ and bold 600+, depending on personality. 
+	8. for any text, don't use a font weight under regular font weight(400)
+	9. Use less than 75 characters per line.
+	10. for normal size text, use a line height between 1.5 and 2. for bigger text go below 1.5 (LINE HEIGHT)            note: LINE HEIGHT  if headings			note: LETTER SPACING if heading
+	11. Decrease letter spacing in headlines (LETTER SPACING)							decrease line height (below 150%)	         decrease letter spacing in heading 
+		>> sample: letter-spacing:-3.5px; meaning murag iya e compress ang mga letters.   		       LINE HEIGHT for sub-headings or paragraph              LETTER SPACING for sub-heading or paragraph         	
+	12. Use all capital letters for short title, make them small and bold and increase letter-spacing.			increase line height (above 150%)	          increase letter spacing ani.
+	13.Usually don't justify text. meaning dili ka always mag used of letter-spacing.	
+	14. Don't center long text title, but if text title is short it's okay to make them in center.
+
+3 main ways that typography affects the User experience UX
+1. Typography is a major component of branding. Choose a typeface that aligns with the brand message, it also aligns and differentiates itself from other brands. 
+2. Readability is important. shape of letters, space between letters, space between lines and width of lines. all affect a person's ability to easily to read text. 
+3. Acessibility is core component of product design, because it makes to make product or service easy to use. 
+	note: choosing a typeface with distinctive, easy to read letters and appropriate contrast, then correctly applying heading levels, creating clear visual hierarchy, maintaining proper alignment and making
+		text adequately sized will benifit everyone.
+
+
+
+
+2. Colors: 
+Rule:	1. Make the main color match your website's personality: colors convey meaning!. 
+		RED: draws a lot of attention, and symbolizes power, passion and excitement
+		ORANGE: is less aggressive, and conveys happiness, cheerfulness, and creativity				summary:
+		YELLOW: means joy, brightness and intelligence									choose a main color then  choose tint(lighter) and shade(darker) sa main color 
+		GREEN: represents harmony, nature, growth, and health								then choose grey color for paragraph text. then for secondary color choose
+		BLUE: is associated with peace, trustworthiness, and professionalism							accent color with relationship sa main color.
+		PURPLE: convey wealth, wisdom and magic									don't forget to check the contrast of background-color and the text color for
+		PINK: represents romance, care and affection											accessibility.
+		BROWN: is associated with nature, durability and comfort
+		BLACK: symbolizes power, elegance and minimalism, but also grief and sorrow.					selecting sa main color, advisable nga same sa color sa imong main picture,  or 
+	2. Use a good color tone! Don't choose a random tone or CSS named colors. 							theme sa imong webpage.
+		 Tone is a hue or mixture of pure colors to which only pure gray is added (equal amounts of black and white).
+	3. You need at least two types of colors in your color palette: a main color and a grey color. 
+		color palette: A color palette is a combination of colors used by UI designers when designing an interface.
+		main color: Pinaka-main jud nimo nga color nga g pili
+		grey-color: ang main color nimo nag add na ug pure grey. 
+	4. optional, you can add more colors: accent(secondary) colors, don't pick any color, but with relationship of main color 
+	5. for diversity, create lighter and darker version of your main, grey and accent color (tints and shade)
+	6. use your main color to draw attention to the most important elements on the page. 
+	7. use colors to add interesting accents or make entire componets or sections stand out. 
+	8. you can try to use your color strategically in images and illustrations. (same color sa imgs and webpage.)
+	9. on dark colored backgrounds, try to use a tint of the background( lighter version ) for the text.
+	10. Text should usually not be completely black, especially on paragraph text it should be light color or grey color.
+	11. Don't make text too light, 
+			contrast ratio needs to be at least 4.5:1 for normal text (paragraph text) and 3:1 for large text (headings)
+
+
+3. Images/Illustrations 
+Rule:	1.Different types of images: product images, storytelling photos, illustrations, patterns
+	2. use images to support your website's message and story. So only use relevant images. 			summary:  Use images that will be fit on your webpage theme, 
+	3. prefer original images. if not possible, use original-looking stock images  						Used linear gradient to images(darker) and to pop-up the text color inside the image		
+	4. Try to show real people to trigger user's emotions									make sure nga ang original size sa image is 2x or 3x larger. 
+	5. if necessary, crop images to fit your messages
+	6. experiment combining photos, illustrations and pattern
+	7. method #1. darker the entire image using linear gradient and brighten the text inside the image
+	8. method #2. position text into neutral image area.
+	9 method #3. put text in the box, but use opacity of the box. 
+	10. To account for high- rescreen, make image dimension 2x as big as their displayed image.
+		meaning dapat ang size sa imong original image is 2x or 3x larger kaysa webpage. 
+	11. compress images for a lower file size and better performance
+	12. when using multiple images side by side, make sure they have exact same dimensions.
+
+
+
+4. Icons
+Rule:	1. use a good icon pack, there are tons of free and paid icons packs
+	2. Use only one icon pack. Don't mix icons from different icons packs
+	3. use SVG icons or icons fonts. Don't use bitmap image formats (.jpg or .png )
+	4. Adjust to website personality. Roundness, weight and filled/outlined depend on typography. (meaning mag depende ang imong icons sa imong what type of typeface ang imong g gamit.)
+	5. Use icons to provide visual assistance to text 								
+	6. Use icons for product feature blocks (meaning ang mga icons kay more on product/service related )				
+	7. Use icons associated with actions and label them 
+	8. use icons as bullet points. (mga list)
+	9.  To keep icons neutral, use same color as text. 
+	     To draw attention, use differenct color
+	10. Don't confuse your users: icons need to make sense and fit the text action.
+	11. Don't make icons larger than what they were designed for. If needed enclose them in a shape (meaning ang icons e-sulod ug shaped recommended is circle and limit sa size icons)
+
+
+
+5. Shadows
+rule:	1. serious/elegant website personality: less shadow
+	     playful and fun website personality: more shadow
+	2. use shadows in small doses: don't add shadows to every element! 
+	3. go light on shadows, don't make them too dark!. 
+	4. use small shadows for smaller elements that should stand out(mga gamay ug size but pinaka-importante, like buttons, icons, profile-image)
+	5. use medium-sized shadows for larger areas that should stand out a bit more. (mga website image and card image)
+	6. use large shadows for elements that should really float above the interface (mga navigation, pop-up, mga select-tags ug registration)
+	for buttons shadow:
+		hover: medium sized shadow 
+		click/active: smaller sized shadow 
+	optional pwede dili black ang gamiton, pwede lain na color.
+
+
+
+
+
+6. Border-radius
+rule:	1. use border-radius to increase the playfulness and fun of the design, to make it less serious. 
+		less/no boder-radius >>> serious design
+		more border-radius  >>> more playfulness design.
+	2. typfaces have a certain roundness: make sure that border-radius matches 	that roundness.
+		typefaces with roundness >>> lots of border radius on icons, button and images. 
+		typeface with box type >>> less border-radius on icons, button and images. 
+
+
+
+
+7. Whitespace
+	- The right amount of whitespaces makes designs look clean, modern and polish
+	- Whitespace communicates how different pieces of information are related to one another
+	- Whitespace implies invisible relationships between the elemens of a layout 
+rule:	1. use tons of whitespace between section (between sa one page content)
+	2. use a lot of whitespace between group of elements (between sa content inside sa one page content or between sa div sa content)
+	3. use whitespace between elements (sulod sa usa ka div dapat ang mga content kay naay whitespace)
+	4. The more some elements or a group of elements belong together, the closer they should be. 
+		if icons ra pwede mag spacing/whitespace ug dako but dili palabi ug dako
+		but if buttons, input tags, select tags dapat doul or gamay ra ug whitespace ang gamiton.
+	5. match other design choices. if you have big text or big icons you need more whitespace, if small text or small icons less whitespaces.
+
+
+
+
+8. Visual Hierarchy
+	-is about establishing which elements of a design are the most important ones
+	- is about drawing attention to these most important elements
+	- is about defining a path for users to guide them through the page
+	* we use a combination of position, size, colors, spacing, borders and shadows to establish a meaningful visual hierarchy between elements/components
+rule:	1. position important elements closer to the top of the page, where they get more attention 
+	2. use images mindfully as they draw a lot of attention (larger images get more attention)
+	3. Whitespace creates separation, so use whitespace strategically to emphaize elements
+	4. for text elements, use font size, font weight, color, and whitespace to convey importance 
+	5. What text emphasizes? Titles, sub-titles, link, buttons, data points, icons (meaning mga importants elements)
+		-you can also de-emphasize less important text like labels or secondary/additional information
+	6. emphasize an important component using background color, shadow, or border 
+	7. try to emphasizing some componet A over component B by de-emphasizing component B. 
+	8 What components to emphasize? TESTIMONIALS, CALL-TO-ACTION SECTION, HIGHLIGHT SECTIONS, PREVIEW CARDS, FORMS, PRICING TABLES, IMPORTANT ROWS/COLUMNS IN TABLE, etc. 
+
+
+
+
+9. User Experience
+10. Components/Layout 
+
+Website Personalities
+1. Serious/Elegant: For luxury and elegance, based on thin serif typefaces, golden or pastel colors, and big-high-quality images
+	- overview:  design for luxury and elegance, based on thin serif typefaces, go lden or pastel colors,  and big high-quality images
+	-industries: real estate, high fashion, jewerly, luxury products and services 
+	-typography: serif typefaces(especially in headings), light for weight, small body font size
+	-colors: gold, pastel colors, black, dark blue or gray
+	-images: big, high-quality images are used to feature elegant and expensive products
+	-icons: usually no icons, but thin icons and lines may be used
+	-shadows: no shadows
+	-border-raidus: no boder-raidus
+	-layout: a creative and experimental layout is quite common
+
+
+2. Minamalist/Simple: Focusses on the essential text content, using small or medium-sized sans-serif black text, lines, and fex-images and icons.
+	-overview: focusses on the essential text content, using small or medium-sized sans-serif black text, lines and few images and icons
+	-idustries: fashion, portfolios, minimalism companies, software startups
+	-typography: boxy/squared sans-serif typefaces, small body font sizes
+	-colors: usually black or dark grey, on pure white background. usually just on color throughtout the design
+	-images: few images, which can be used to add some color to the design. usually no illustrations, but if, than just black
+	-icons: usually no icons, but small simple black icons may be used
+	-shadows: no shadows
+	-border-radius: no boder-radius
+	-layout: simple layout, a narrow one-column layout is quite common
+	
+
+3. Plain/Neutral: Design that gets out of the way by using neutral and small typefaces, and a very structured layout. Common in big corporations.
+	-overview: design that gets out of the way by using very neutral and small typefaces, and a boxy structured and condensed layout
+	- industries: well-establised corporations, companies that dont want to make an impact throught design
+	-typography: neutral-looking sans-serif typefaces are used, and text is usually small and doesn't have visual impact
+	-colors: safe colors are employed, nothing too bright or to washed-out. blues and blacks are common
+	-images: images are frequently used, but usually in a small font
+	-icons: usually no icons, but simple icons may be used
+	-shadows: no shadows
+	-border-radius: no boder-radius
+	-layout: structured and condensed layout, with lots of boxes and rows.  
+
+
+
+
+4. Bold/Confident: Makes an impact, by featuring big and bold typography, paired with confident use of big and bright colored blocks.
+	-overview: design that make an impact, by featuring big ang bold typography, paired with confident use of big colored blocks
+	-industries: digital agencies, software startups, travel, strong companies 
+	-typography: boxy/squared sans-serif typefaces, big and bold typography, especially heading. uppercase headings are common. 
+	- colors: usually multiple bright colors. big colors block/section are used to draw attention
+	-images: lots of big images are usally displayed
+	-icons: no icons
+	-shadows: no shadows
+	-border-radius: no border-radius
+	-layout: all kinds of layouts, no particular tendencies
+
+
+5. Calm/Peaceful: For products and service that care, transmitted by calming paster colors, soft serif headings, and matching images/illustrations.
+	-overview: for products and services that care about the consumer, which is transmitted by calming pastel colors and soft serif headings
+	-industries: healthcare, all products with focus on consumer well-being
+	-typography: soft serif typefaces frequently used for headings, but sans-serif headings might be used too 
+	-colors: pastel/washed-out colors: light oranges, yellow, browns, greens, blues
+	-images: images and illustrations are usual, matching calm color palette
+	-icons: icons are quite frequent
+	shadows: no shadows
+	border-radius: frequent use
+	layout: all kids of layout, no particualr tendencies 
+
+
+6. Startup/Upbeat: Widely used in startsup, featuring medium-sized sans-serif typefaces, light-grey and backgrounds, and rounded elements.
+	-overview: widely used in startups, featuring medium-sized sans-serif typefaces, light-grey backgrounds, and rounded elements
+	-industries: software startyps, and other modern-looking companies
+	-typography: medium-sized headings(not too large), usally one sans-serif typeface in whole desing. tendency for lighter text colors
+	-colors: blues,greens and purples are widely used. lots of light backgrounds(mainly gray), gradients are also common
+	-images: images or illustrations are always used. 3d illustrations are modern. sometimes patterns and shapes add visual details
+	-icons: icons are very frequent
+	-shadows: subtle shadows are frequent. glows are becoming modern
+	-border-radius: border-radius is very common
+	-layout: rows of cards and z-patterns are usual, as well as animations
+
+
+7. Playful/Fun: Colorful and round designs, fueled by creative elements like hand-drawn icons or illustrations, animations and fun language.
+	-overview: colorful and round designs, fueled by creative elements like hand-drawn icons or illustrations, animations, and fun language
+	-industried: child products, animal products, food
+	-typography: round and creative (e.g. handwritten) sans-serif typefaces are frequent. centered text is more common
+	-colors: multiple colors are frequently used to design a colorful layout, all over backgrounds and text
+	-images: images, hand-drawn (or 3D) illustrations, and geometric shapes and patterns are all very frequently used
+	-icons: icons are frequent, many times in a hand-drawn style
+	-shadows: subtle shadows are quite common, but not always used
+	-border-radius: border-radius is very common
+	-layout: all kids of layouts, no particular tendencies
+
+
+The process behind building a website
+
+1. define
+	- Define who the website for. 
+	- Define What the website for
+	- Define a target audience 
+2. plan
+	- Plan and gather website content: copy of text, images, videos, icons and etc.
+	- plan for website content
+	- for bigger sites plan out the site map: what pages the site needs, and how they are related to one another
+	- based on the content, plan what sections each page needs in order to convey the content's message and in which order
+	- define the website personality . 
+
+
+
+
+
+
+
+
+............................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
+
+/*
+--- 01 TYPOGRAPHY SYSTEM
+
+- Font sizes (px)
+10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+
+- Font weights
+Default: 400
+Medium: 500
+Semi-bold: 600
+Bold: 700
+
+- Line heights
+Default: 1
+Small: 1.05
+Medium: 1.2
+Paragraph default: 1.6
+Large: 1.8
+
+- Letter spacing
+-0.5px
+0.75px
+
+--- 02 COLORS
+
+- Primary (main-color): 
+
+- Tints(light version of main color):
+
+- Shades(dark version of main color): 
+
+- Accents(secondary color):
+
+- Greys:
+
+#767676 (lightest grey allowed on #fff)
+#6f6f6f (lightest grey allowed on #fdf2e9)
+more on subtext color of heading: #555
+dark version of #555: #333
+light version of #555: #888
+
+--- 05 SHADOWS
+
+minimal shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.075); 
+
+
+--- 06 BORDER-RADIUS
+
+Default: 9px
+Medium: 11px
+
+--- 07 WHITESPACE
+
+- Spacing system (px)
+2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									
