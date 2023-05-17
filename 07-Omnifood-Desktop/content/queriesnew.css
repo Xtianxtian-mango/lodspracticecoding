@@ -1,0 +1,270 @@
+/* rem and em do NOT depend on html font-size in media queries! Instead, 1rem = 1em = 16px
+do not use rem due to bug. so used em*/
+
+/**************************/
+/* BELOW 1300px (Smaller desktops) */
+/**************************/
+
+@media (max-width: 84em) {
+  .hero {
+    max-width: 120rem;
+  }
+  .heading-primary {
+    font-size: 4.4rem;
+  }
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/**************************/
+/* BELOW 1200px (Landscape Tablets) */
+/**************************/
+
+@media (max-width: 75em) {
+  html {
+    /* 9px/16px */
+    font-size: 56.25%;
+  }
+  .header {
+    padding: 0 3.2rem;
+  }
+  .hero {
+    gap: 4.8rem;
+  }
+  .heading-secondary {
+    font-size: 3.6rem;
+  }
+  .heading-tertiary {
+    font-size: 2.4rem;
+  }
+  .grid-cols-2 {
+    column-gap: 4.8rem;
+    row-gap: 6.4rem;
+  }
+  .grid-cols-3 {
+    column-gap: 4.8rem;
+    row-gap: 6.4rem;
+  }
+  .testimonials-container {
+    padding: 9.6rem 3.2rem;
+  }
+  .feature-grid-4-cols {
+    column-gap: 4.8rem;
+    row-gap: 6.4rem;
+  }
+  .footer-grid {
+    column-gap: 4.8rem;
+    row-gap: 6.4rem;
+  }
+}
+
+/**************************/
+/* BELOW 944px (Tablets) */
+/**************************/
+
+@media (max-width: 59em) {
+  /* start of mobile navigation work */
+  .btn-mobile-nav {
+    display: block;
+  }
+  .main-nav {
+    background-color: rgba(255, 255, 255, 0.9);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+
+    /* for center position */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* for animation */
+    transition: all 0.5s ease-in;
+
+    /* para inig click nimo sa menu-icon mo pop-up tong navigation but in 
+            X-axis direction*/
+    transform: translateX(100%);
+
+    /* proper hide the navigation properly */
+    /* 1st step: Hide it visually */
+    opacity: 0;
+
+    /* 2nd: make it unaccessible to mouse and keyboard */
+    pointer-events: none;
+
+    /* 3rd: hide it from screen readers */
+    visibility: hidden;
+  }
+
+  /* for vertiacal align of navigation */
+  .main-nav-list {
+    flex-direction: column;
+    gap: 4.8rem;
+  }
+  /* font-size of navigation */
+  .main-nav-link:link,
+  .main-nav-link:visited {
+    font-size: 3rem;
+  }
+
+  /* mechanism for show and hide the navigation */
+  /* mechanism sad ni para makita nimo ang icon, kay naa si .nav-open*/
+  .nav-open .main-nav {
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
+
+    /* kung mo appear na ang mga navigation mo steady siya dili mo lihok   */
+    transform: translateX(0);
+  }
+
+  /* for close icon to be appear when click the menu icon */
+  .nav-open .icon-mobile-nav[name="close-outline"] {
+    display: block;
+  }
+
+  /* for menu icon to be disappear, when close icon is appear */
+  .nav-open .icon-mobile-nav[name="menu-outline"] {
+    display: none;
+  }
+  /* end of mobile navigation  */
+
+  html {
+    /* 8px / 16px = 0.5 = 50% */
+    font-size: 50%;
+  }
+  .hero {
+    grid-template-columns: repeat(1, 1fr);
+    padding: 0 8rem;
+    gap: 6.4rem;
+  }
+  .hero-text-box,
+  .hero-img-box {
+    text-align: center;
+  }
+  .hero-img {
+    width: 60%;
+  }
+  .delivered-meals {
+    justify-content: center;
+    margin-top: 3.2rem;
+  }
+  .logos img {
+    height: 2.4rem;
+  }
+  .step-number {
+    font-size: 7.4rem;
+  }
+  .section-testimonials {
+    grid-template-columns: 1fr;
+  }
+  .gallery {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .container-login-form {
+    grid-template-columns: 3fr 2fr;
+  }
+  .login-form {
+    grid-template-columns: 1fr;
+  }
+}
+
+/**************************/
+/* BELOW 704px (Smaller tablets) */
+/**************************/
+
+@media (max-width: 44em) {
+  .logos img {
+    height: 1.6rem;
+  }
+  .grid-cols-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .list {
+    grid-column: 1/-1;
+    justify-self: center;
+  }
+  .feature-grid-4-cols {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .heading-secondary {
+    margin-bottom: 4.8rem;
+  }
+  .footer-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+  .nav-col {
+    grid-row: 1;
+    grid-column: span 2;
+    margin-bottom: 3.2rem;
+  }
+  .logo-col,
+  .adrress-col {
+    grid-column: span 3;
+  }
+}
+
+/**************************/
+/* BELOW 544px (Phones) */
+/**************************/
+@media (max-width: 34em) {
+  .section-hero {
+    padding: 2.4rem 0 6.4rem 0;
+  }
+  .hero {
+    padding: 0 3.2rem;
+  }
+  .btn-hero:link,
+  .btn-hero:visited {
+    padding: 2.4rem 1.6rem;
+  }
+  .btn--full:hover,
+  .btn--full:active {
+    padding: 2.4rem 1.6rem;
+  }
+  .hero-img {
+    width: 80%;
+  }
+  .logos img {
+    height: 1.2rem;
+  }
+  .grid-cols-2 {
+    grid-template-columns: 1fr;
+  }
+  .step-img-box-2 {
+    grid-row: 4;
+  }
+  .section-meals {
+    padding: 0 0 9.6rem 0;
+  }
+  .grid-cols-3 {
+    grid-template-columns: 1fr;
+  }
+  .testimonials {
+    grid-template-columns: 1fr;
+  }
+  .gallery {
+    grid-template-columns: repeat(3, 1fr);
+    padding: 0 3.2rem;
+  }
+  .pricing-container {
+    width: 100%;
+  }
+  .feature-grid-4-cols {
+    grid-template-columns: 1fr;
+  }
+  .container-login-form {
+    grid-template-columns: 1fr;
+  }
+  .login-img-box {
+    height: 38rem;
+    grid-row: 1;
+  }
+  .login-box {
+    padding: 3.2rem;
+  }
+}
