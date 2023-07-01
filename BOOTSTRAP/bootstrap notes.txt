@@ -1,0 +1,11 @@
+note: if mag css ka nya nag gamit ka ug bootstrap, make sure nga ang imong link sa css kay below ni bootstrap para ma overide nimo ang mga classes.
+
+note: breakpoint if nag target nya naay above nya nga mga sizes, automatic inig re-size ang above nya nga sizes is automatic 50% ang width.
+
+note: col-sm-(any value from 1-12), if gusto ka nga naa pa jud sunod nya dili naka mo col-sm(value) diritso na col-(value)
+
+note: in icon, if ganahan ka nga same ug style ang icon sa boostrap-example, copy ang .feature-icon.. sample: .feature-icon {
+       											    width: 4rem;
+        											    height: 4rem;
+      										                   border-radius: 0.75rem;
+  											   }
